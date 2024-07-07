@@ -52,22 +52,22 @@ export async function POST({ request, platform }) {
       const response = await result.response;
       const resText = response.text();
 
-      const message = JSON.parse(resText).comment
+      const message = JSON.parse(resText).comment;
 
       return new Response(JSON.stringify({
         message: message,
         success: true
-      }))   
+      }));
     } catch (error) {
       return new Response(JSON.stringify({
         success:false,
-        message: "Something went wrong during generation. Try again."
-      }))
+        message: "Something went wrong during generation. Try again." + error.toString();
+      }));
     };
   } else {
     return new Response(JSON.stringify({
       success: false,
       message: "Turnstile verification failed: Try again?"
-    }))
+    }));
   }
 }
