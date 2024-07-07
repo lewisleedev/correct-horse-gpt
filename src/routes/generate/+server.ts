@@ -61,7 +61,7 @@ export async function POST({ request, platform }) {
     } catch (error) {
       return new Response(JSON.stringify({
         success:false,
-        message: "Something went wrong during generation. Try again." + error.toString();
+        message: "Something went wrong during generation. Try again." + error.toString()
       }));
     };
   } else {
